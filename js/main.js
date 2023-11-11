@@ -11,12 +11,28 @@
   /*---------------------------------------------------- */
   /* Button click works now
 	------------------------------------------------------ */
+  //   $(".button").on("click", function (e) {
+  //     e.preventDefault(); // Prevent the default link behavior
+  //     var link = $(this).attr("href"); // Get the link from the button's href attribute
+  //     window.open(link, "_blank"); // Open the link in a new tab
+  //   });
+
   $(".button").on("click", function (e) {
     e.preventDefault(); // Prevent the default link behavior
     var link = $(this).attr("href"); // Get the link from the button's href attribute
-    window.open(link, "_blank"); // Open the link in a new tab
+    if ($(this).hasClass("smoothscroll")) {
+      // Smooth scroll to the target section
+      $("html, body").animate(
+        {
+          scrollTop: $(link).offset().top,
+        },
+        800
+      );
+    } else {
+      // Open the link in a new tab for all other cases
+      window.open(link, "_blank");
+    }
   });
-
   /*---------------------------------------------------- */
   /* Preloader
 	------------------------------------------------------ */
