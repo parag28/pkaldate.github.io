@@ -8,6 +8,9 @@
 (function ($) {
   "use strict";
 
+  /*---------------------------------------------------- */
+  /* Button click works now
+	------------------------------------------------------ */
   $(".button").on("click", function (e) {
     e.preventDefault(); // Prevent the default link behavior
     var link = $(this).attr("href"); // Get the link from the button's href attribute
